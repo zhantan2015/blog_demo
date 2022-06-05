@@ -10,7 +10,7 @@
         <span>点滴生活</span>
       </div>
     </div>
-    <div class="next__outer">
+    <div class="next__outer" @click="cover_hide">
       <svg
         id="next_top_1"
         t="1652280926375"
@@ -63,26 +63,27 @@
     </div>
   </div>
 </template>
-<script>
-import { defineComponent } from "vue";
+<script setup>
+import { useStore } from "vuex";
+const store = useStore();
 
-export default defineComponent({
-  name: "appBackground",
-  setup() {},
-});
+function cover_hide() {
+  store.commit("set_cover_show", false);
+}
 </script>
 <style lang="less" scoped>
 .cover__outer {
   height: 100vh;
   width: 100vw;
-  max-width: 1280px;
-  position: absolute;
+
   display: flex;
   flex-direction: column;
   text-align: center;
   color: #efdddf;
   background-size: cover;
-  background-image: url('../assets/img/cover_background.jpg');
+  background-position: center;
+  background-image: url("../assets/img/cover_background.jpg");
+  user-select: none;
 }
 
 .next__outer {

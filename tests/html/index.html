@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #336699;
+            transform-style: preserve-3d;
+            transform: perspective(888px);
+        }
+
+        header {
+            position: relative;
+            margin: 0.8rem;
+            background-color: #eee;
+            padding: 1rem 0 2rem;
+            text-align: center;
+            border-radius: 0.8rem;
+            transition: all 1s ease;
+            transform: rotateX(-45deg) translateY(-110%);
+            opacity: .2;
+        }
+
+        header:hover{
+            transform: rotateX(0) translateY(0);
+            opacity: 1;
+        }
+
+        header.fake {
+            opacity: 1;
+            transform: rotate3d(0, 0, 0, 0);
+        }
+
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: all 1s ease;
+        }
+
+        .fade-enter-from,
+        .fade-leave-to {
+            transform: rotateX(45deg);
+            box-shadow: 0 0 0 #33333333;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>守望者旃檀</h1>
+    </header>
+    <script>
+        let header = document.querySelector('header');
+        header.addEventListener('click', () => {
+            header.classList.add('fake')
+        })
+    </script>
+</body>
+
+</html>
